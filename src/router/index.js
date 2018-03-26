@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import bookshelf from '@/components/bookshelf'
 import HelloWorld from '@/components/HelloWorld'
 import booki from '@/components/booki'
-
+import read from '@/components/read'
 Vue.use(Router)
 
 export default new Router({
@@ -24,9 +24,9 @@ export default new Router({
       component: booki
     },
     {
-      path: '/booki/:id',
-      name: 'booki',
-      component: booki
-    },
+      path: '/read/:chapter',
+      name: 'read',
+      component: read
+    }
   ]
 })

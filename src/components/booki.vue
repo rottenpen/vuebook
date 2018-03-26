@@ -4,12 +4,15 @@
         <mt-button @click="$router.push({name:'HelloWorld'})" icon="back" slot="left">返回</mt-button>
       </mt-header>
       <div id="contents" name="contents" v-if="result">
-       <img :src="result.cover" alt="无图" onerror="javascript:this.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521801756336&di=44b5ab8c98206c00ef1008082704627b&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3Deb32c1cfd6a20cf446c5f6db43396700%2F10dfa9ec8a136327d060847b978fa0ec09fac7ed.jpg'">
+       <img :src="result.cover" alt="无图" onerror="javascript:this.src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521801756336&di=44b5ab8c98206c00ef1008082704627b&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3Deb32c1cfd6a20cf446c5f6db43396700%2F10dfa9ec8a136327d060847b978fa0ec09fac7ed.jpg'" id="cover">
             <p> 
                 <span class="title">{{result.title}}</span></br>
                 <span class="lastChapter">{{result.lastChapter}}</span>
             </p>
-            <mt-button type="danger" @click="$router.push({name:'read',query:{id:sourceId}})">阅读</mt-button>
+            <mt-button type="danger" @click="$router.push({name:'read',query:{id:source[2]._id},params:{chapter:0}})">阅读</mt-button>
+      </div>
+      <div class="longintro">
+        <p>{{result.longIntro}}</p>
       </div>
   </div>
 </template>
@@ -132,10 +135,14 @@ export default {
   height: 100%;
 }
 #contents {
-  height: 570px;
+  height: 420px;
   width: 100%;
+  border-bottom: 1px solid #e1e1e2;
 }
-
+#cover{
+  width: 80vw;
+  height: 80vw;
+}
 .left {
   width: 20%;
   height: 100%;
@@ -146,6 +153,10 @@ export default {
   width: 80%;
   height: 100%;
   float: right;
+}
+.longintro{
+    padding: 20px 35px;
+    font-size: .8rem;
 }
 #contents{
   margin-top: 50px;
@@ -167,4 +178,5 @@ export default {
   -webkit-box-shadow: inset 0 0 6px rgb(225, 225, 226);
   background-color: rgb(225, 225, 226);
 }
+
 </style>

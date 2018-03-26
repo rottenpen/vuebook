@@ -47,31 +47,31 @@ export default {
       that.someList = [
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010023261/180" alt="01"><div>圣墟</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1004608738/150" alt="01"><div>圣墟</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010735084/180" alt="02"><div>飞剑问道</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010468795/150" alt="02"><div>飞剑问道</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010092001/180" alt="03"><div>剑来</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/2789022/150" alt="03"><div>剑来</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010468795/180" alt="04"><div>择天记</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/3347595/150" alt="04"><div>择天记</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1004608738/180" alt="05"><div>大道朝天</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010496369/150" alt="05"><div>大道朝天</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/3602691/180" alt="06"><div>三体</div>'
+            '<img class="cover" src="https://img1.doubanio.com/lpic/s2768378.jpg" alt="06"><div>三体</div>'
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1011096178/180" alt="07"><div>龙族</div>'
+            '<img class="cover" src="http://www.zhuaji.org/files/article/image/1/1490/1490s.jpg" alt="07"><div>龙族</div>'
         }
       ];
     }, 2000);
@@ -85,6 +85,8 @@ export default {
     },
     next() {
       this.$refs.stack.$emit("next");
+
+      
     }
   }
 };

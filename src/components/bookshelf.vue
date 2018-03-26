@@ -6,7 +6,7 @@
     </mt-search>
     <div id="shelflist">
       <div id="booklist">
-        <div class="box" v-for="book in bookshelf"  @click="$router.push({name:'read',query:{id:source[2]._id}})">
+        <div class="box" v-for="book in bookshelf"  @click="$router.push({name:'read',query:{id:source[2]._id},params:{chapter:0}})">
             <img :src="book.img_url" alt="无图">
             <p> 
                 <span class="title">{{book.title}}</span></br>
