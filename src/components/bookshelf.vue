@@ -6,13 +6,26 @@
     </mt-search>
     <div id="shelflist">
       <div id="booklist">
-        <div class="box" v-for="book in bookshelf"  @click="$router.push({name:'read',query:{id:source[2]._id},params:{chapter:0}})">
-            <img :src="book.img_url" alt="无图">
+        <!-- <div class="box" v-for="book in bookshelf"  @click="$router.push({name:'read',query:{id:book.id},params:{chapter:0}})">
+            <img :src="book.cover" alt="无图">
             <p> 
                 <span class="title">{{book.title}}</span></br>
                 <span class="lastChapter">{{book.lastChapter}}</span>
             </p>
-        </div>
+        </div> -->
+        <mt-cell-swipe
+          v-for="book in bookshelf"
+          :to="'read/0?id='+book.id"
+          :title="book.title"
+          :right="[
+            {
+              content: 'Delete',
+              style: { background: 'red', color: '#fff' },
+              handler: () => this.$messagebox('delete')
+            }
+          ]">
+          
+        </mt-cell-swipe>
       </div>
       <div class="box" v-if="!bookshelf&&!value">
             <p> 
@@ -51,6 +64,7 @@ export default {
     };
   },
   mounted() {
+    this.bookshelf=JSON.parse(localStorage.getItem('bookshelf')) 
     return;
   },
   watch:{
@@ -104,5 +118,7 @@ export default {
   width: 100vw;
   
 }
-
+#booklist{
+  width: 100vw;
+}
 </style>

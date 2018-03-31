@@ -9,7 +9,7 @@
                 <span class="title">{{result.title}}</span></br>
                 <span class="lastChapter">{{result.lastChapter}}</span>
             </p>
-            <mt-button type="danger" @click="$router.push({name:'read',query:{id:source[2]._id},params:{chapter:0}})">阅读</mt-button>
+            <mt-button type="danger" @click="$router.push({name:'read',query:{id:source[2]._id},params:{chapter:0}}),pushshelf()">阅读</mt-button>
       </div>
       <div class="longintro">
         <p>{{result.longIntro}}</p>
@@ -67,6 +67,24 @@ export default {
       chapterNum:0
     };
   },
+  methods:{
+    pushshelf(){
+      console.log('1')
+      let bookshelf=JSON.parse(localStorage.getItem('bookshelf'))||[]
+      
+      bookshelf.push(
+        {
+          title:this.result.title,
+          cover:this.result.cover,
+          lastChapter:this.result.lastChapter,
+          id:this.source[2]._id,
+          chapter:0
+        }
+      )
+      bookshelf=JSON.stringify(bookshelf)
+      localStorage.setItem('bookshelf',bookshelf)
+    }
+  },
   created() {
     this.$http({
       method: "get",
@@ -91,12 +109,12 @@ export default {
           res => {
             this.source = res.data;
             let sourceId = res.data.length > 1 ? res.data[1]._id : res.data[0]._id;
-            for (let item of res.data) {
-              if (item.source === "my176") {
-                sourceId = item._id;
-              }
-              this.sourceId = sourceId;
-            }
+            // for (let item of res.data) {
+            //   if (item.source === "my176") {
+            //     sourceId = item._id;
+            //   }
+            //   this.sourceId = sourceId;
+            // }
             
             let shelf=localStorage.getItem('shelf')||[]
             let chapterNum=0

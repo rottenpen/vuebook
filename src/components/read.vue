@@ -178,9 +178,17 @@ export default {
 pre {
   white-space: pre-wrap;
 }
+
 .pop {
   width: 100vw;
   height: 200px;
+}
+.popupboxup{
+  width: 100vw;
+  height: 36px;
+  position:fixed;
+  top: 0;
+  left: 0;
 }
 .popupboxleft {
   width: 50vw;

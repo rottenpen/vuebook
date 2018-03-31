@@ -3,7 +3,7 @@
     <mt-header fixed title="推荐"></mt-header>
     <div>
       <div class="stack-wrapper">
-        <stack ref="stack" :pages="someList" :stackinit="stackinit"></stack>
+        <stack ref="stack" @upup='pageup' :pages="someList" :stackinit="stackinit"></stack>
       </div>
       <div class="controls">
         <button @click="prev" class="button"><i class="prev"></i><span class="text-hidden">prev</span></button>
@@ -37,8 +37,11 @@ export default {
       selected: "推荐",
       someList: [],
       stackinit: {
-        visible: 3
-      }
+        visible: 3,
+        currentPage: 0
+      },
+      pageid:'5816b415b06d1d32157790b1',
+      bookId:['5816b415b06d1d32157790b1','52e13475c09f68641700068d','592fe687c60e3c4926b040ca','53855a750ac0b3a41e00c7e6','59e2c2b08bde16e66f9e3b85','582c62b16b292ab6169692e7','5622536e06d01acc43f041e3']
     };
   },
   mounted() {
@@ -51,7 +54,7 @@ export default {
         },
         {
           html:
-            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/1010468795/150" alt="02"><div>飞剑问道</div>'
+            '<img class="cover" src="https://qidian.qpic.cn/qdbimg/349573/3070038/180" alt="02"><div>大宋的智慧</div>'
         },
         {
           html:
@@ -74,18 +77,28 @@ export default {
             '<img class="cover" src="http://www.zhuaji.org/files/article/image/1/1490/1490s.jpg" alt="07"><div>龙族</div>'
         }
       ];
-    }, 2000);
+    }, 0);
   },
   components: {
     stack
   },
   methods: {
+    pageup(page){
+      this.stackinit.currentPage=page
+      console.log(this.stackinit.currentPage)
+      this.pageid=this.bookId[this.stackinit.currentPage]
+    },
     prev() {
       this.$refs.stack.$emit("prev");
+      console.log('prev')
+      console.log(this.stackinit.currentPage)
     },
     next() {
+      this.$router.push({name:'booki',params:{id:this.pageid}})
       this.$refs.stack.$emit("next");
-
+      console.log('next')
+      
+      console.log(this.stackinit.currentPage)
       
     }
   }

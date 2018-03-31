@@ -27,7 +27,7 @@ export default {
     pages: {
       type: Array,
       default: {}
-    }
+    },
   },
   data () {
     return {
@@ -167,6 +167,7 @@ export default {
       this.temporaryData.lastZindex = 20
       // 循环currentPage
       this.temporaryData.currentPage = this.temporaryData.currentPage === this.pages.length - 1 ? 0 : this.temporaryData.currentPage + 1
+      this.$emit('upup',this.temporaryData.currentPage)
       // currentPage切换，整体dom进行变化，把第一层滑动置最低
       this.$nextTick(() => {
         this.temporaryData.poswidth = 0
@@ -177,6 +178,7 @@ export default {
     },
     onTransitionEnd (index) {
       let lastPage = this.temporaryData.currentPage === 0 ? this.pages.length - 1 : this.temporaryData.currentPage - 1
+      this.$emit('upup',this.temporaryData.currentPage)
       // dom发生变化正在执行的动画滑动序列已经变为上一层
       if (this.temporaryData.swipe && index === lastPage) {
         this.temporaryData.animation = true
