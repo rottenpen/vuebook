@@ -17,6 +17,7 @@
           <div class="night selectcolor" @click="selectcolor('night')"></div>
         </div>
         <div class="buttonbox">
+          <mt-button @click="$router.push({path: '/',})">返回</mt-button>
           <mt-button id="prev" v-if="chapters!=0" @click="prev">上一章</mt-button>
           <mt-button class="bigger" @click="bigger()" :disabled="size>=6?true:false">Aa+</mt-button>
           <mt-button class="smaller" @click="smaller()" :disabled="size<=0?true:false">Aa-</mt-button>

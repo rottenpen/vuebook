@@ -20,8 +20,7 @@
           :right="[
             {
               content: 'Delete',
-              style: { background: 'red', color: '#fff' },
-              handler: () => this.$messagebox('delete')
+              style: { background: 'red', color: '#fff' }
             }
           ]">
           
